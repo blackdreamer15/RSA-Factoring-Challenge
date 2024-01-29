@@ -31,3 +31,18 @@ check_factor()
 
         echo "$num$num1*$num2"
 }
+
+if [ $# -ne 1 ]
+then
+        echo 'Usage: factors <file>'
+        exit 1
+else
+
+        while read i
+        do
+
+                result=$(factor "$i")
+                check_factor $result
+
+        done < "$1"
+fi
